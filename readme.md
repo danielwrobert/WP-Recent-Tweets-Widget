@@ -20,13 +20,6 @@ The settings for the widget / shortcode are:
 
 - `include_rts`: 1| 0 -  whether to include retweets (true =1, false =0)
 
-
-##Author: 
-
-Daniel Robert http://cupofvoodoo.com/
-
-Github: https://github.com/danielwrobert
-
 ###Reference:
 
 WPtuts+ "How to Create a Recent Tweets Widget" - http://bit.ly/MezBpc
