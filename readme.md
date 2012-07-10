@@ -1,6 +1,6 @@
 ##Description
 
-This is the code from an upcoming wp.tuts+ tutorial:
+This is the code from a WPtuts+ tutorial (http://bit.ly/MezBpc):
 
 To use it just add it to your plug-in folder.
 
@@ -8,7 +8,7 @@ To use it just add it to your plug-in folder.
 
 - 'Recent Tweets' widget
 
-- 'Recent Tweets' shortcode: e.g `[wptuts_twitter screen_name="stephenharris88" count=5 published_when=1 include_rts=1 ]`
+- 'Recent Tweets' shortcode: e.g `[voodoo_twitter screen_name="danielwrobert" count=5 published_when=1 include_rts=1 ]`
 
 The settings for the widget / shortcode are:
 
@@ -27,7 +27,9 @@ Daniel Robert http://cupofvoodoo.com/
 
 Github: https://github.com/danielwrobert
 
-###This repo was forked from: 
+###Reference:
+
+WPtuts+ "How to Create a Recent Tweets Widget" - http://bit.ly/MezBpc
 
 Stephen Harris http://profiles.wordpress.org/stephenh1988/
 
