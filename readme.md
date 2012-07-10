@@ -23,6 +23,12 @@ The settings for the widget / shortcode are:
 
 ##Author: 
 
+Daniel Robert http://cupofvoodoo.com/
+
+Github: https://github.com/danielwrobert
+
+###This repo was forked from: 
+
 Stephen Harris http://profiles.wordpress.org/stephenh1988/
 
 Github: https://github.com/stephenh1988
