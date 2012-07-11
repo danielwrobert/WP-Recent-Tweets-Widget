@@ -175,8 +175,8 @@ function get_tweets($args){
     //Generate key
     $key = 'wptt_'.md5($request_url);
 
-    //expires every hour
-    $expiration = 60*60; 
+    //expires every five minutes - was every hour (60*60)
+    $expiration = 60*5;
 
     $transient = get_transient( $key );
 
