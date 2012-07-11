@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Voodoo Tweets
+Plugin Name: WP Recent Tweets
 Description: Recent tweets widget. Based on WPtuts article (http://bit.ly/MezBpc)
 Version: 1.0
 Author: Daniel Robert
@@ -8,16 +8,16 @@ Author URI: cupofvoodoo.com
 */
 
 
-class WP_Widget_Voodoo_Twitter_Widget extends WP_Widget {
+class WP_Widget_Recent_Tweets_Widget extends WP_Widget {
 
    var $w_arg;//A class variable to store an array of our widget settings and their default values
 
 function __construct() {
     $widget_ops = array(
-        'classname' => 'voodoo_widget_twitter',
-        'description' => __('Displays a list of recent tweets','voodoo_twitter')
+        'classname' => 'wp_recent_tweets_widget',
+        'description' => __('Displays a list of recent tweets','wp_recent_tweets')
     );
-    parent::__construct('WP_Widget_Voodoo_Twitter', __('Twitter','voodoo_twitter'), $widget_ops);
+    parent::__construct('WP_Widget_Recent_Tweets', __('Twitter','wp_recent_tweets'), $widget_ops);
 
     //Sett widget's settings and default values
     $this->w_arg = array(
@@ -55,22 +55,22 @@ function update( $new_instance=array(), $old_instance=array() ) {
         $instance = extract(wp_parse_args( (array) $instance, $this->w_arg ));
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'voodoo_twitter'); ?>: </label>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'wp_recent_tweets'); ?>: </label>
             <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title);?>" />
         </p
 >
         <p>
-            <label for="<?php echo $this->get_field_id('screen_name'); ?>"><?php _e('Twitter username', 'voodoo_twitter'); ?>: </label>
+            <label for="<?php echo $this->get_field_id('screen_name'); ?>"><?php _e('Twitter username', 'wp_recent_tweets'); ?>: </label>
             <input id="<?php echo $this->get_field_id('screen_name'); ?>" name="<?php echo $this->get_field_name('screen_name'); ?>" type="text" value="<?php echo esc_attr($screen_name);?>" />
         </p>
 
         <p>
-            <label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Number of Tweets', 'voodoo_twitter'); ?>: </label>
+            <label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Number of Tweets', 'wp_recent_tweets'); ?>: </label>
             <input id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" type="text" value="<?php echo intval($count);?>" />
         </p>
 
     <p>
-        <label for="<?php echo $this->get_field_id('published_when'); ?>"><?php _e('Show when tweet was published', 'voodoo_twitter'); ?>: </label>
+        <label for="<?php echo $this->get_field_id('published_when'); ?>"><?php _e('Show when tweet was published', 'wp_recent_tweets'); ?>: </label>
         <input  id="<?php echo $this->get_field_id('published_when'); ?>" name="<?php echo $this->get_field_name('published_when'); ?>" <?php checked($published_when,1); ?> type="checkbox" value="1" />
     </p>
 
@@ -93,7 +93,7 @@ function generate_tweet_list( $args=array() ){
     $content = '<ul>';
     if ( is_wp_error($tweets) || !is_array($tweets) || count($tweets) ==0 ) {
 
-        $content .= '<li>' . __( 'No Tweets Available', 'voodoo_twitter' ) . '</li>';
+        $content .= '<li>' . __( 'No Tweets Available', 'wp_recent_tweets' ) . '</li>';
 
     } else {
         $count = 0;
@@ -117,8 +117,8 @@ function generate_tweet_list( $args=array() ){
         }
     }
     $content .= '</ul>';
-    //wp_enqueue_script('voodoo_twitter_script');
-    //wp_enqueue_style('voodoo_twitter_style');
+    //wp_enqueue_script('wp_recent_tweets_script');
+    //wp_enqueue_style('wp_recent_tweets_style');
 
     return $content;
 }
@@ -235,25 +235,25 @@ function get_tweets($args){
             return new WP_Error($code, $response->error); 
 
         default:
-            return new WP_Error($code, __('Invalid response','voodoo_twitter'));
+            return new WP_Error($code, __('Invalid response','wp_recent_tweets'));
     endswitch;
 }
  }
 
-add_action( 'widgets_init', 'voodoo_register_widget');
-function voodoo_register_widget(){
-    register_widget('WP_Widget_Voodoo_Twitter_Widget');
+add_action( 'widgets_init', 'register_tweets_widget');
+function register_tweets_widget(){
+    register_widget('WP_Widget_Recent_Tweets_Widget');
 }
 
-   function voodoo_twitter_shortcode_cb( $atts ) {
-        $args = shortcode_atts( array(
-            'screen_name' => '',
-            'count' => 5,
-            'published_when' => 5,
-            'include_rts' => 1,
-               ), $atts );
+function wp_recent_tweets_shortcode_cb( $atts ) {
+    $args = shortcode_atts( array(
+        'screen_name' => '',
+        'count' => 5,
+        'published_when' => 5,
+        'include_rts' => 1,
+           ), $atts );
 
-        $tw = new WP_Widget_Voodoo_Twitter_Widget();
-        return $tw->generate_tweet_list( $args );
-    }
-    add_shortcode( 'voodoo_twtter', 'voodoo_twitter_shortcode_cb' );
+    $tw = new WP_Widget_Recent_Tweets_Widget();
+    return $tw->generate_tweet_list( $args );
+}
+add_shortcode( 'wp_recent_tweets', 'wp_recent_tweets_shortcode_cb' );
