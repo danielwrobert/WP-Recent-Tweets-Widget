@@ -8,7 +8,7 @@ To use it just add it to your plug-in folder.
 
 - 'Recent Tweets' widget
 
-- 'Recent Tweets' shortcode: e.g `[voodoo_twitter screen_name="danielwrobert" count=5 published_when=1 include_rts=1 ]`
+- 'Recent Tweets' shortcode: e.g `[wp_recent_tweets screen_name="YOUR_TWITTER_USERNAME" count=5 published_when=1 include_rts=1 ]`
 
 The settings for the widget / shortcode are:
 
