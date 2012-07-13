@@ -22,6 +22,4 @@ The settings for the widget / shortcode are:
 
 ###Reference:
 
-Tutorial: WPtuts+ "How to Create a Recent Tweets Widget" - http://bit.ly/MezBpc
-
-Original Repo: https://github.com/stephenh1988/WP-Recent-Tweets-Widget
+WPtuts+ "How to Create a Recent Tweets Widget" - http://bit.ly/MezBpc
