@@ -1,6 +1,6 @@
 ##Description
 
-This is the code from a WPtuts+ tutorial (http://bit.ly/MezBpc):
+This is the code from a [WPtuts+ tutorial](http://bit.ly/MezBpc). It is a [fork](https://github.com/stephenh1988/WP-Recent-Tweets-Widget) from the author, [Stephen Harris](https://github.com/stephenh1988).
 
 To use it just add it to your plug-in folder.
 
